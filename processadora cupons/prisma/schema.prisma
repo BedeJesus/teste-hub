@@ -1,0 +1,41 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Cupom {
+  id              String     @id @default(uuid())
+  code44          String
+  purchaseDate    DateTime
+  totalValue      Float
+  companyDocument String
+  state           String
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+  products        Product[]
+  comprador       Comprador?
+}
+
+model Product {
+  id           String @id @default(uuid())
+  name         String
+  ean          String
+  unitaryPrice Float
+  quantity     Int
+  cupomId      String
+  cupom        Cupom  @relation(fields: [cupomId], references: [id])
+}
+
+model Comprador {
+  id        String   @id @default(uuid())
+  name      String
+  birthDate DateTime
+  document  String
+  cupomId   String   @unique
+  cupom     Cupom    @relation(fields: [cupomId], references: [id])
+}

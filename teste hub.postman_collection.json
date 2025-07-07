@@ -1,0 +1,39 @@
+{
+	"info": {
+		"_postman_id": "7cdc0786-4ca6-4bff-83c7-ab1ac5625a95",
+		"name": "teste hub",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18605057"
+	},
+	"item": [
+		{
+			"name": "create cupom",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"code44\": \"45645416516156156116516515161651561651564564\",\r\n    \"purchaseDate\": \"2024-02-01\",\r\n    \"totalValue\": 92,\r\n    \"companyDocument\": \"03.768.586/0001-27\",\r\n    \"state\": \"SP\",\r\n    \"products\": [\r\n    {\"name\": \"Sabão Líquido OMO Lavagem Perfeita 500ml\", \"ean\":4565156131, \"unitaryPrice\": 10.20, \"quantity\": 5},\r\n    {\"name\": \"CIF Multiuso Cremoso 450ml\", \"ean\": 4565156131,\"unitaryPrice\": 8.20, \"quantity\": 5}]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/cupons/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"cupons",
+						"create"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
